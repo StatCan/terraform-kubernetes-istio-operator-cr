@@ -1,0 +1,8 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels: {{- include "istio-operator-manifest.labels" . | nindent 4 }}
+spec:
+  {{- .Values.spec | nindent 2 }}
